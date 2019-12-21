@@ -1,0 +1,26 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Checkout') {
+      steps {
+          echo "Checking out the file from Master..."
+          sh 'git checkout master'
+	        sh 'git pull'
+        }
+      }
+    stage('Build') {
+      steps {
+        echo "Compiling upStream2 Job...."
+        sh 'echo "upStreamJob1" ${BUILD_NUMBER}> UpStream2Output.txt'
+      }
+    }
+     stage('Commit') {
+      steps {
+        sh 'cat UpStream2Output.txt'
+        sh 'git commit -m "Jenkins commit after build" UpStream2Output.txt'
+        sh 'git push --all --verbose'
+      }
+    }  
+  }
+}

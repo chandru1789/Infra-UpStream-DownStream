@@ -3,16 +3,16 @@ pipeline {
 
   stages {
     
-	stage ('UpStream_Job_1') {
+	stage ('UpStream_Job1_1') {
       steps {
-        echo "Triggering UpStream_Job_1"
-        build job: 'UpStream_Job_1'
+        echo "Triggering UpStream_Job1_1"
+        build job: 'UpStream_Job1_1'
       }
     }
-    stage ('UpStream_Job2') {
+    stage ('UpStream_Job2_1') {
       steps {
-        echo "Triggering UpStream_Job2"
-        build job: 'UpStream_Job2'
+        echo "Triggering UpStream_Job2_1"
+        build job: 'UpStream_Job2_1'
       }
     }
 		   
