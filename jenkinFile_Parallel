@@ -15,15 +15,15 @@ pipeline {
                     }
                 }
 
-                stage('UpStream_Job2') {
+                stage('DownStream_Job2') {
                    
                     steps {
                         sleep time: 10000, unit: 'NANOSECONDS'
-                        build job: 'UpStream_Job2'
+                        build job: 'DownStream_Job2'
                     }
                     post {
                         always {
-                           echo "UpStream_Job2 Completed Successfully"
+                           echo "DownStream_Job2 Completed Successfully"
                         }
                     }
                 }
