@@ -4,13 +4,13 @@ pipeline {
         stage('Calling Upstream Jobs') {
             parallel {
 
-                stage('UpStream_Job1') {
+                stage('UpStream_Job_1') {
                     steps {
-                        build job: 'UpStream_Job1'
+                        build job: 'UpStream_Job_1'
                     }
                     post {
                         always {
-                            echo "UpStream_Job1 Completed Successfully"
+                            echo "UpStream_Job_1 Completed Successfully"
                         }
                     }
                 }
