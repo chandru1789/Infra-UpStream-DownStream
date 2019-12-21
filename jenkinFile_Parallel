@@ -1,0 +1,33 @@
+pipeline {
+    agent none
+    stages {
+        stage('Calling Upstream Jobs') {
+            parallel {
+
+                stage('UpStream_Job1') {
+                    steps {
+                        build job: 'UpStream_Job1'
+                    }
+                    post {
+                        always {
+                            echo "UpStream_Job1 Completed Successfully"
+                        }
+                    }
+                }
+
+                stage('UpStream_Job2') {
+                   
+                    steps {
+                        build job: 'UpStream_Job2'
+                    }
+                    post {
+                        always {
+                           echo "UpStream_Job2 Completed Successfully"
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
