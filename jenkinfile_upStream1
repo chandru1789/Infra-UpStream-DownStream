@@ -25,9 +25,9 @@ pipeline {
 		    sh 'git push origin --tags'
       }
     }
-	stage ('DownStream_Job1') {
+	stage ('DownStream_Job_1') {
       steps {
-        build job: 'DownStream_Job1'
+        build job: 'DownStream_Job_1'
       }
     }
 		   
