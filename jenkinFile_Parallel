@@ -16,9 +16,8 @@ pipeline {
                 }
 
                 stage('UpStream_Job2') {
-                   
+                   sleep time: 10000, unit: 'NANOSECONDS'
                     steps {
-                        sh 'sleep 60s'
                         build job: 'UpStream_Job2'
                     }
                     post {
