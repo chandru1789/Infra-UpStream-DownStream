@@ -18,6 +18,7 @@ pipeline {
                 stage('UpStream_Job2') {
                    
                     steps {
+                        sh 'sleep 60s'
                         build job: 'UpStream_Job2'
                     }
                     post {
